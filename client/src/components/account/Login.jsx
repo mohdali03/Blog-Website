@@ -81,13 +81,19 @@ const Login = () => {
   }
 
   const signupUser = async () => {
-    let response = await API.userSignup(signup);
+    try {
+
+      let response = await API.userSignup(signup);
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
     <Component>
       <Box>
-        <Image src={imageURL} alt="blog" style={{height:"9em",width:"9em"}}/>
+        <Image src={imageURL} alt="blog" style={{ height: "9em", width: "9em" }} />
         {account === "login" ? (
           <Wrapper>
             <TextField
@@ -116,27 +122,25 @@ const Login = () => {
             <TextField
               variant="standard"
               name="name"
-              onClick={(e) => {
-                onInputChange(e);
-              }}
+              value={signup.name}
+              onChange={(e) => onInputChange(e)}
               label="Enter Name"
             />
             <TextField
               variant="standard"
               name="username"
-              onClick={(e) => {
-                onInputChange(e);
-              }}
+              value={signup.username}
+              onChange={(e) => onInputChange(e)}
               label="Enter Username"
             />
             <TextField
               variant="standard"
               name="password"
-              onClick={(e) => {
-                onInputChange(e);
-              }}
+              value={signup.password}
+              onChange={(e) => onInputChange(e)}
               label="Enter Password"
             />
+
 
             <SignupButton
               onClick={() => {
