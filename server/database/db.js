@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 
 const Connection = async () => {
-  let username = "aiden"
-  let password = "blogweb123";
+ 
   const URL = `mongodb://127.0.0.1:27017/`;
   try {
     await mongoose.connect(URL); //,{ useNewUrlParser: true }
